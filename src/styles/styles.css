@@ -1,0 +1,122 @@
+* {
+  /* background-color: black; */
+}
+/* home */
+.header1 {
+  font-size: 54px;
+  @media (max-width: 500px) {
+    font-size: 40px;
+  }
+}
+.homeRow {
+  min-height: 60vh;
+}
+.homeLayout {
+  min-height: 80vh;
+  /* background-color: black; */
+}
+.card {
+  min-height: 500px;
+}
+.heroImg {
+  height: 40vh;
+  /* width: 300px; */
+  background-position: center;
+  background-size: 100%;
+  object-fit: cover;
+  /* filter: brightness(20%); */
+}
+/* MyNav */
+.brand {
+  font-size: 10vh;
+}
+.NavLink {
+  font-size: 2vh;
+}
+/* contact  */
+.contactForm {
+  padding: 30%;
+}
+/* myNav */
+nav .nav .navbg {
+  background: none !important;
+  height: 20vh;
+}
+/* .NavLink .NavItem {
+  font-size: 6rem !important;
+  color: white;
+} */
+/* misc */
+.center {
+  display: flex;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+.homeDiv {
+  max-height: 80vh;
+  object-fit: contain;
+}
+.center {
+  margin: auto auto;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  justify-items: center;
+}
+.bg {
+  background-color: black;
+  color: white !important;
+}
+.bg-none {
+  background: none;
+}
+.darkbg {
+  background-color: darkgray !important;
+  color: white !important;
+}
+
+/* MEDIA QUERIES */
+/* @media (max-width: 500px) {
+  .heroImg {
+    height: 20vh;
+    width: 100vw;
+    /* width: 300px; 
+background-position: center;
+background-size: 100%;
+object-fit: cover;
+filter: brightness(20%); 
+  }
+} */
+@media screen and (max-width: 1000px) {
+  .heroImg {
+    height: 30vh;
+    width: 100vw;
+    /* width: 300px; */
+    background-position: center;
+    background-size: 100%;
+    object-fit: cover;
+    background-repeat: none;
+
+    /* filter: brightness(20%); */
+  }
+  .brand {
+    font-size: 6vh;
+  }
+  .NavLink {
+    font-size: 2vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .heroImg {
+    height: 60vh;
+    width: 100vw;
+    /* width: 300px; */
+    background-position: center;
+    background-size: 100%;
+    object-fit: cover;
+    background-repeat: none;
+    /* filter: brightness(20%); */
+  }
+}
