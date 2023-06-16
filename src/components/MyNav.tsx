@@ -43,8 +43,8 @@ const MyNav = (): JSX.Element => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className='text-white' href='/Login'>
-                    <strong className='NavLink'>Log In</strong>
+                  <NavLink className='text-white' href='/Signup'>
+                    <strong className='NavLink'>Sign Up</strong>
                   </NavLink>
                 </NavItem>
                 <NavItem className='NavLink'>

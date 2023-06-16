@@ -9,8 +9,19 @@ import cut from '../../public/photos/barbershop.jpeg'
 import NavWithHero from '@/components/NavWithHero'
 import 'bootstrap/dist/css/bootstrap.min.css' // Import bootstrap CSS
 import Footer from '@/components/Footer'
-
+import DateTimePick from '@/components/DateTimePick'
+import { DateTimePicker } from '@mui/x-date-pickers'
+import BookingForm from '@/components/BookingForm'
 const Booking = () => {
+  interface Customer {
+    customerId: number
+    firstName: String
+    lastName: String
+    city: String
+    phoneNumber: String
+    ffavoriteBarber: number
+  }
+
   return (
     <div className='bg'>
       <NavWithHero />
@@ -105,7 +116,7 @@ const Booking = () => {
                 </Row>
               </Container>
             </div>
-            <div className=''>
+            {/* <div className=''>
               <Container>
                 <div>
                   <h3>Pricing Table</h3>
@@ -114,13 +125,13 @@ const Booking = () => {
                   </div>
                 </div>
               </Container>
-            </div>
+            </div> */}
             <div className=''>
               <Container>
-                <div>
-                  <h3>Book Now</h3>
-                </div>
-                <Container></Container>
+                <Container>
+                  <BookingForm />
+                  {/* <DateTimePicker /> */}
+                </Container>
               </Container>
             </div>
           </Col>

@@ -12,6 +12,10 @@ import {
 const Footer = () => {
   return (
     <div style={{}} className='darkbg'>
+      <br />
+      <br />
+      <br />
+      <br />
       <Container>
         <div className='darkbg'>
           <Row className='text-center spacer' color='dark'>

@@ -1,5 +1,16 @@
 import React, { useState } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Container,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+} from 'reactstrap'
 
 function MyModal(args: any) {
   const [modal, setModal] = useState(false)
@@ -9,18 +20,34 @@ function MyModal(args: any) {
   return (
     <div>
       <Button color='secondary' onClick={toggle}>
-        <strong className='NavLink'>Sign Up</strong>
+        <strong className='NavLink'>Log In</strong>
       </Button>
       <Modal isOpen={modal} toggle={toggle} {...args}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <Container>
+            <Form>
+              <FormGroup>
+                <Label for='exampleEmail'>Email</Label>
+                <Input
+                  type='email'
+                  name='email'
+                  id='exampleEmail'
+                  placeholder='with a placeholder'
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for='examplePassword'>Password</Label>
+                <Input
+                  type='password'
+                  name='password'
+                  id='examplePassword'
+                  placeholder='password placeholder'
+                />
+              </FormGroup>
+              <button className='btn'>submit</button>
+            </Form>
+          </Container>
         </ModalBody>
         <ModalFooter>
           <Button color='primary' onClick={toggle}>

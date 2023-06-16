@@ -27,13 +27,16 @@ model Customer {
   city            String
   phoneNumber     String
   ffavoriteBarber Int    @default(1)
+  email           String @unique
+  password        String  
 
   @@unique([customerId, phoneNumber])
 }
 
 model Transaction {
-  transactionId Int @id @unique @default(autoincrement())
+  transactionId Int      @id @unique @default(autoincrement())
   fcustomerId   Int
   orderPrice    Int
   fbarberId     Int
+  Date          DateTime @default(now())
 }
