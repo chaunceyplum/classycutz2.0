@@ -75,14 +75,14 @@ const SignupForm = () => {
     //   return bcrypt.hash(unHashedPass, 10).then((hash: string) => {
     //     return hash
     //   })
-    }
   }
+
   const submitUser = (event: any) => {
-    const newPass = hashPass(userPassword)
+    // const newPass = hashPass(userPassword)
     const userDetails: Customer = {
       data: {
         email: userEmail,
-        password: newPass,
+        password: userPassword,
         firstName: userFirstName,
         lastName: userLastName,
         city: userCity,

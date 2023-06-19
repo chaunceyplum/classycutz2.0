@@ -12,6 +12,7 @@ import Footer from '@/components/Footer'
 import DateTimePick from '@/components/DateTimePick'
 import { DateTimePicker } from '@mui/x-date-pickers'
 import BookingForm from '@/components/BookingForm'
+import BookingCheckout from '../components/BookingCheckout'
 const Booking = () => {
   interface Customer {
     customerId: number
@@ -128,10 +129,9 @@ const Booking = () => {
             </div> */}
             <div className=''>
               <Container>
-                <Container>
-                  <BookingForm />
-                  {/* <DateTimePicker /> */}
-                </Container>
+                <BookingCheckout />
+                {/* <BookingForm /> */}
+                {/* <DateTimePicker /> */}
               </Container>
             </div>
           </Col>
