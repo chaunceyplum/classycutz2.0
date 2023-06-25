@@ -40,3 +40,9 @@ model Transaction {
   fbarberId     Int
   Date          DateTime @default(now())
 }
+model Contact {
+  ContactId Int   @id @unique @default(autoincrement())
+  Name String
+  Email String @unique
+  Message String
+}

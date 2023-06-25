@@ -1,9 +1,79 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FormControl, FormLabel } from 'react-bootstrap'
 import { Button, Col, Container, Form, FormGroup, Row } from 'reactstrap'
 import DateTimePick from './DateTimePick'
+import axios from 'axios'
 
 const ContactForm = () => {
+  interface Contact {
+    data: {
+      Name: String
+      Email: String
+      Message: String
+    }
+  }
+  const [userEmail, setUserEmail] = useState('')
+  const [userName, setUserName] = useState('')
+  const [userMessage, setUserMessage] = useState('')
+
+  const clearBoth = () => {
+    setUserEmail('')
+    setUserName('')
+    setUserMessage('')
+  }
+
+  //const apiUrl = 'https://classycutzbackend.herokuapp.com/newportContactinfo'
+
+  const apiUrl = '/api/contact'
+
+  // const forceUpdateHandler = () => {
+  //   this.forceUpdate()
+  // }
+  const user: Contact = {
+    data: {
+      Email: userEmail,
+      Name: userName,
+      Message: userMessage,
+    },
+  }
+  const logIn = async (user: object) => {
+    try {
+      const res = await axios.post(`${apiUrl}`, user)
+
+      //console.log(res.data)
+
+      res.data
+        ? console.log(`submitted user ${user}`)
+        : console.log('unable to run setter func')
+
+      return res.data
+    } catch (err: any) {
+      return err.FirstName
+    }
+    // forceUpdateHandler()
+  }
+  const hashPass = (unHashedPass: String) => {
+    // {
+    //   return bcrypt.hash(unHashedPass, 10).then((hash: string) => {
+    //     return hash
+    //   })
+  }
+
+  const submitUser = (event: any) => {
+    // const newPass = hashPass(userPassword)
+    const userDetails: Contact = {
+      data: {
+        Email: userEmail,
+        Name: userName,
+        Message: userMessage,
+      },
+    }
+
+    //console.log(userDetails)
+    logIn(userDetails)
+
+    return userDetails
+  }
   return (
     <div>
       <br />
@@ -51,7 +121,7 @@ const ContactForm = () => {
                             size='sm'
                             type='text'
                             placeholder='Enter Your Name Here!'
-                            //onChange={(e) => setUserEmail(e.target.value)}
+                            onChange={(e) => setUserName(e.target.value)}
                           ></FormControl>
                         </FormGroup>
                       </Col>
@@ -62,7 +132,7 @@ const ContactForm = () => {
                             size='sm'
                             type='email'
                             placeholder='Enter Your Email Here!'
-                            //onChange={(e) => setUserPassword(e.target.value)}
+                            onChange={(e) => setUserEmail(e.target.value)}
                           ></FormControl>
                         </FormGroup>
                       </Col>
@@ -75,7 +145,7 @@ const ContactForm = () => {
                         size='sm'
                         type='textarea'
                         placeholder='Enter a message here!'
-                        //onChange={(e) => setUserMessage(e.target.value)}
+                        onChange={(e) => setUserMessage(e.target.value)}
                       ></FormControl>
                     </FormGroup>
                   </Container>
@@ -87,9 +157,9 @@ const ContactForm = () => {
                         <div className='center text-center'>
                           <Button
                             className='bgColor'
-                            // onClick={() => {
-                            //   clearBoth()
-                            // }}
+                            onClick={() => {
+                              clearBoth()
+                            }}
                           >
                             Cancel
                           </Button>
@@ -99,9 +169,9 @@ const ContactForm = () => {
                         <div className='center text-center'>
                           <Button
                             className='bgColor'
-                            // onClick={(e) => {
-                            //   submitUser(e)
-                            // }}
+                            onClick={(e) => {
+                              submitUser(e)
+                            }}
                           >
                             Submit
                           </Button>

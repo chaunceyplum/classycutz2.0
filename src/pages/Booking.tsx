@@ -129,8 +129,8 @@ const Booking = () => {
             </div> */}
             <div className=''>
               <Container>
-                <BookingCheckout />
-                {/* <BookingForm /> */}
+                {/* <BookingCheckout /> */}
+                <BookingForm />
                 {/* <DateTimePicker /> */}
               </Container>
             </div>

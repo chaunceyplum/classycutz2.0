@@ -1,9 +1,85 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FormControl, FormLabel } from 'react-bootstrap'
 import { Button, Col, Container, Form, FormGroup, Row } from 'reactstrap'
 import DateTimePick from './DateTimePick'
+import axios from 'axios'
 
 const BookingForm = () => {
+  interface Appointment {
+    data: {
+      fcustomerId: number
+      fbarberId: number
+      date: String
+      appointmentDate: String
+    }
+  }
+  const [userCustomerId, setUserCustomerId] = useState(Number)
+  const [userBarberId, setUserBarberId] = useState(Number)
+  const [userDate, setUserDate] = useState('')
+  const [userAppointmentDate, setUserAppointmentDate] = useState('')
+
+  const clearBoth = () => {
+    setUserCustomerId(0)
+    setUserBarberId(0)
+    setUserDate('')
+    setUserAppointmentDate('')
+  }
+
+  //const apiUrl = 'https://classycutzbackend.herokuapp.com/newportContactinfo'
+
+  const apiUrl = '/api/Appointment'
+
+  // const forceUpdateHandler = () => {
+  //   this.forceUpdate()
+  // }
+  const user: Appointment = {
+    data: {
+      fcustomerId: userCustomerId,
+      fbarberId: userBarberId,
+      date: userDate,
+      appointmentDate: userAppointmentDate,
+    },
+  }
+  const logIn = async (user: object) => {
+    try {
+      const res = await axios.post(`${apiUrl}`, user)
+
+      console.log(res.data)
+
+      res.data
+        ? console.log(res.data)
+        : console.log('unable to run setter func')
+
+      return res.data
+    } catch (err: any) {
+      return err.FirstName
+    }
+    // forceUpdateHandler()
+  }
+  const hashPass = (unHashedPass: String) => {
+    // {
+    //   return bcrypt.hash(unHashedPass, 10).then((hash: string) => {
+    //     return hash
+    //   })
+  }
+
+  const submitUser = (event: any) => {
+    // const newPass = hashPass(userPassword)
+    const userDetails: Appointment = {
+      data: {
+        fcustomerId: userCustomerId,
+        fbarberId: userBarberId,
+        date: userDate,
+        appointmentDate: userAppointmentDate,
+      },
+    }
+
+    console.log(userDetails)
+    logIn(userDetails)
+
+    return userDetails
+  }
+
   return (
     <div>
       <br />
@@ -83,11 +159,22 @@ const BookingForm = () => {
                   <br />
 
                   <Container className='center'>
-                    <FormGroup>
-                      {/* <FormLabel>Your Message</FormLabel> */}
+                    <Row>
+                      <Col>
+                        <FormGroup>
+                          {/* <FormLabel>Your Message</FormLabel> */}
 
-                      <DateTimePick />
-                    </FormGroup>
+                          <DateTimePick />
+                        </FormGroup>
+                      </Col>
+                      <Col />
+                      <Col>
+                        <FormGroup>
+                          <FormLabel>What can we help you with?</FormLabel>
+                          <FormControl size='sm' type='enum'></FormControl>
+                        </FormGroup>
+                      </Col>
+                    </Row>
                   </Container>
                   <br />
                   <Container>
