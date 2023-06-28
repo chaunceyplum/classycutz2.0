@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import {
   Collapse,
   Navbar,
@@ -13,10 +13,13 @@ import {
   Modal,
 } from 'reactstrap'
 import MyModal from './MyModal'
+import { ThemeContext } from '@/context/context'
+
+// const userContext = createContext<T>(defaultValue: T)</T>
 
 const MyNav = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const [userData, setUserData] = useState()
   const toggle = () => setIsOpen(!isOpen)
 
   return (

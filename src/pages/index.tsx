@@ -7,7 +7,18 @@ import Hero from '@/components/Hero'
 import Testimonials from '@/components/Testimonials'
 import NavWithHero from '@/components/NavWithHero'
 import Footer from '@/components/Footer'
-
+// import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+type User = {
+  data: {
+    firstName: String
+    lastName: String
+    city: String
+    phoneNumber: String
+    ffavoriteBarber: Number
+    email: String
+    password: String
+  }
+}
 export default function Home() {
   return (
     <>
@@ -27,3 +38,10 @@ export default function Home() {
     </>
   )
 }
+// export const getUserProps: GetStaticProps<{
+//   user: User
+// }> = async (userData) => {
+//   // const res = await fetch('https://api.github.com/repos/vercel/next.js')
+//   const user = await userData.json()
+//   return { props: { user } }
+// }

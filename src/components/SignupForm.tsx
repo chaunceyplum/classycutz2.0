@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import { FormControl, FormLabel } from 'react-bootstrap'
 import { Button, Col, Container, Form, FormGroup, Row } from 'reactstrap'
@@ -5,7 +6,7 @@ import DateTimePick from './DateTimePick'
 import axios from 'axios'
 // import bcrypt from 'bcrypt'
 // const bcrypt = require('bcrypt')
-
+import { useThemeContext } from '@/context/context'
 const SignupForm = () => {
   interface Customer {
     data: {
@@ -25,6 +26,7 @@ const SignupForm = () => {
   const [userCity, setUserCity] = useState('')
   const [userPhoneNumber, setUserPhoneNumber] = useState('')
   const [userFavoriteBarber, setUserFavoriteBarber] = useState(Number)
+  // const { userData, setUserData } = useThemeContext()
 
   const clearBoth = () => {
     setUserEmail('')

@@ -19,6 +19,12 @@
       "react": ["./node_modules/@types/react"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/context/context.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/context/context.js",
+    "src/components/MyNav.tsx"
+  ],
   "exclude": ["node_modules"]
 }
