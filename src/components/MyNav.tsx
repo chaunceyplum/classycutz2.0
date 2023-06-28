@@ -14,6 +14,8 @@ import {
 } from 'reactstrap'
 import MyModal from './MyModal'
 import { ThemeContext } from '@/context/context'
+import { useSelector } from 'react-redux'
+import Welcome from './Welcome'
 
 // const userContext = createContext<T>(defaultValue: T)</T>
 
@@ -21,6 +23,8 @@ const MyNav = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
   const [userData, setUserData] = useState()
   const toggle = () => setIsOpen(!isOpen)
+  const User = useSelector((state: any) => state.User)
+  const loggedIn = useSelector((state: any) => state.isLoggedIn)
 
   return (
     <>
@@ -51,7 +55,8 @@ const MyNav = (): JSX.Element => {
                   </NavLink>
                 </NavItem>
                 <NavItem className='NavLink'>
-                  <MyModal />
+                  {/* <MyModal /> */}
+                  {loggedIn ? <Welcome /> : <MyModal />}
                 </NavItem>
               </Nav>
             </Collapse>

@@ -21,14 +21,15 @@ model Barber {
 }
 
 model Customer {
-  customerId      Int    @id @unique @default(autoincrement())
+  customerId      Int     @id @unique @default(autoincrement())
   firstName       String
   lastName        String
   city            String
   phoneNumber     String
-  ffavoriteBarber Int    @default(1)
-  email           String @unique
-  password        String  
+  ffavoriteBarber Int     @default(1)
+  email           String  @unique
+  password        String
+  isLoggedIn      Boolean @default(false)
 
   @@unique([customerId, phoneNumber])
 }
@@ -40,9 +41,10 @@ model Transaction {
   fbarberId     Int
   Date          DateTime @default(now())
 }
+
 model Contact {
-  ContactId Int   @id @unique @default(autoincrement())
-  Name String
-  Email String @unique
-  Message String
+  ContactId Int    @id @unique @default(autoincrement())
+  Name      String
+  Email     String @unique
+  Message   String
 }

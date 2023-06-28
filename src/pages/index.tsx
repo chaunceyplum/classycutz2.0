@@ -7,7 +7,8 @@ import Hero from '@/components/Hero'
 import Testimonials from '@/components/Testimonials'
 import NavWithHero from '@/components/NavWithHero'
 import Footer from '@/components/Footer'
-// import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+import { loadUser } from '@/lib/loadUser'
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 type User = {
   data: {
     firstName: String
@@ -38,10 +39,19 @@ export default function Home() {
     </>
   )
 }
-// export const getUserProps: GetStaticProps<{
+// export const getStaticProps: GetStaticProps<{
 //   user: User
-// }> = async (userData) => {
+// }> = async () => {
 //   // const res = await fetch('https://api.github.com/repos/vercel/next.js')
-//   const user = await userData.json()
+//   const user = userData
+//   return { props: { user } }
+// }
+
+// export async function getStaticProps(data: any) {
+//   // Instead of fetching your `/api` route you can call the same
+//   // function directly in `getStaticProps`
+//   const user = await loadUser(data)
+
+//   // Props returned will be passed to the page component
 //   return { props: { user } }
 // }

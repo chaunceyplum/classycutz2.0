@@ -11,6 +11,7 @@
   "dependencies": {
     "@mui/x-date-pickers": "^6.7.0",
     "@prisma/client": "^4.15.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@stripe/stripe-js": "^1.54.0",
     "@types/react": "18.2.9",
     "@types/react-dom": "18.2.4",
@@ -29,6 +30,7 @@
     "react-bootstrap": "^2.7.4",
     "react-datepicker": "^4.13.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.1.1",
     "reactstrap": "^9.1.10",
     "sass": "^1.63.2",
     "stripe": "^12.9.0"
