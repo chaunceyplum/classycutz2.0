@@ -24,7 +24,7 @@ export default async function handler(
       })
       data
         ? res.status(200).send(`you logged in @${req.body.data.email}`)
-        : res.status(500)
+        : res.status(500).send('Bad Request')
       //res.status(200).send({ data })
     } catch (err) {
       res.status(500).send({ error: err })

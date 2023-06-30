@@ -11,11 +11,13 @@ export const UserSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.isLoggedIn = true
-      state.user = action.payload.data.email
+      state.user = { ...action.payload.data.email }
     },
-    clearUser: (state, action) => {
+    clearUser: (state) => {
       state.isLoggedIn = false
       state.user = {}
+
+      console.log(state)
     },
   },
 })

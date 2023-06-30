@@ -9,6 +9,7 @@ import NavWithHero from '@/components/NavWithHero'
 import Footer from '@/components/Footer'
 import { loadUser } from '@/lib/loadUser'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+import { useSelector } from 'react-redux'
 type User = {
   data: {
     firstName: String
@@ -21,6 +22,8 @@ type User = {
   }
 }
 export default function Home() {
+  const User = useSelector((state: any) => state.User)
+  const loggedIn = useSelector((state: any) => state.isLoggedIn)
   return (
     <>
       <Head>
@@ -30,7 +33,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className='bg'>
-        <NavWithHero />
+        <NavWithHero User={User} loggedIn={loggedIn} />
         <Hero />
         <Testimonials />
 

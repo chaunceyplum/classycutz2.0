@@ -4,7 +4,7 @@ import { Container } from 'reactstrap'
 import cut from '../photos/barbershop.jpeg'
 import Image from 'next/image'
 
-const NavWithHero = () => {
+const NavWithHero = (User: any, loggedIn: any) => {
   return (
     <div>
       <div
@@ -12,7 +12,7 @@ const NavWithHero = () => {
         // style={{ backgroundImage: `url('${cut}')`, objectFit: 'contain' }}
       >
         <Container>
-          <MyNav />
+          <MyNav User={User} loggedIn={loggedIn} />
         </Container>
         <Image src={cut} alt='img' className='heroImg' />
       </div>

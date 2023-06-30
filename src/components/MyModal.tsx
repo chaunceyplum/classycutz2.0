@@ -42,10 +42,9 @@ function MyModal(args: any) {
   //const apiUrl = 'https://classycutzbackend.herokuapp.com/newportContactinfo'
 
   const apiUrl = '/api/login'
+  const [, updateState] = React.useState()
 
-  // const forceUpdateHandler = () => {
-  //   this.forceUpdate()
-  // }
+  const forceUpdateHandler = () => {}
   const user: Customer = {
     data: {
       email: userEmail,
@@ -59,7 +58,7 @@ function MyModal(args: any) {
       // console.log(res.data)
 
       res.data
-        ? console.log('logged in sucessfully')
+        ? console.log(res.data)
         : console.log('unable to run setter func')
 
       return res.data
@@ -74,7 +73,7 @@ function MyModal(args: any) {
     //     return hash
     //   })
   }
-
+  // const forceUpdate = React.useCallback(() => updateState({}), [])
   const submitUser = (event: any, User: any) => {
     // const newPass = hashPass(userPassword)
     const userDetails: Customer = {
@@ -85,13 +84,14 @@ function MyModal(args: any) {
     }
 
     //console.log(userDetails)
-    logIn(userDetails)
-    dispatcher(UserAction.setUser(userDetails))
-    console.log(User)
+    logIn({ ...userDetails })
+    dispatcher(UserAction.setUser({ ...userDetails }))
+    // console.log(User)
     // getStaticProps(userDetails)
 
-    return userDetails
+    return { ...userDetails }
   }
+
   const [modal, setModal] = useState(false)
 
   const toggle = () => setModal(!modal)
