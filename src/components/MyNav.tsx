@@ -32,7 +32,7 @@ import { UserAction } from '@/redux/store'
 
 // const userContext = createContext<T>(defaultValue: T)</T>
 
-const MyNav = (args: any, User: any, loggedIn: any): JSX.Element => {
+const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
 
   const [useruser, setUserUser] = useState()
@@ -90,8 +90,8 @@ const MyNav = (args: any, User: any, loggedIn: any): JSX.Element => {
         : console.log('unable to run setter func')
 
       if ((res.status = 200)) {
-        dispatcher(UserAction.setUser({ ...userDetails }))
-        setterFunc(userDetails.data.email, true)
+        dispatcher(UserAction.setUser(res.data))
+        setterFunc(res.data, true)
         return res.data
       } else {
         return {}
@@ -120,10 +120,11 @@ const MyNav = (args: any, User: any, loggedIn: any): JSX.Element => {
         password: userPassword,
       },
     }
-    logIn({ ...userDetails })
+    logIn(userDetails)
 
     return { ...userDetails }
   }
+  // const username = JSON.parse(useruser)
 
   const [modal, setModal] = useState(false)
 
@@ -164,8 +165,17 @@ const MyNav = (args: any, User: any, loggedIn: any): JSX.Element => {
 
                   {userLoggedIn ? (
                     <div>
-                      <NavLink className='text-white' href='/Signup'>
-                        <h6 className='text-white'>Welcome, {useruser}</h6>
+                      <NavLink
+                        className='text-white text-center'
+                        href='/Signup'
+                      >
+                        <h6 className='text-white text-center'>
+                          Welcome,
+                          <br />
+                          {/* {username.email} */}
+                          {useruser.data.email}
+                          {}
+                        </h6>
                         <Button
                           onClick={() => {
                             dispatcher(UserAction.clearUser())
@@ -181,7 +191,7 @@ const MyNav = (args: any, User: any, loggedIn: any): JSX.Element => {
                         <strong className='NavLink'>Log In</strong>
                       </Button>
                       <Modal isOpen={modal} toggle={toggle} {...args}>
-                        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                        <ModalHeader>Modal title</ModalHeader>
                         <ModalBody>
                           <Container>
                             <Form>

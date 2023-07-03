@@ -22,8 +22,10 @@ export default async function handler(
           email: req.body.data.email,
         },
       })
+      const data1 = JSON.stringify(data)
+      // console.log(data)
       data
-        ? res.status(200).send(`you logged in @${req.body.data.email}`)
+        ? res.status(200).send({ data })
         : res.status(500).send('Bad Request')
       //res.status(200).send({ data })
     } catch (err) {
