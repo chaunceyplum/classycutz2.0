@@ -11,6 +11,7 @@ model Appointment {
   appointmentId   Int      @id @unique @default(autoincrement())
   fcustomerId     Int
   fbarberId       Int
+  phoneNumber     String
   Date            DateTime
   appointmentDate DateTime
 }

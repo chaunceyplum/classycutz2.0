@@ -22,7 +22,6 @@ export default async function handler(
     }
   } else if (req.method == 'POST') {
     try {
-      // const newBarber = req.body
       const data = await prisma.appointment.create(req.body)
       res.status(200).send({ data })
     } catch (err) {

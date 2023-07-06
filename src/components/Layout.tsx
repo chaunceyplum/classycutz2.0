@@ -4,13 +4,14 @@ import Hero from './Hero'
 import Footer from './Footer'
 import { useSelector } from 'react-redux'
 import { Fragment } from 'react'
-export const Layout = (children: any) => {
+
+export const Layout = ({ children }: any) => {
   const loggedIn = useSelector((state: any) => state.isLoggedIn)
   const User = useSelector((state: any) => state.User)
   return (
     <>
-      <NavWithHero />
-      <Hero />
+      <NavWithHero User={User} loggedIn={loggedIn} />
+
       <main>{children}</main>
 
       <Footer />

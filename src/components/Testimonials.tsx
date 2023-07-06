@@ -86,8 +86,9 @@ const Testimonials = () => {
         </div>
         <div>
           <Container>
+            <br />
             <div>
-              <h2>Some styles done by our amazing team</h2>
+              <h2>Meet the barbers</h2>
               <br />
               <Container>
                 <Row></Row>

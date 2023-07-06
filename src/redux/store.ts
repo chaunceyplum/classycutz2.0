@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
-
+import { createWrapper } from 'next-redux-wrapper'
 // create a slice
 export const UserSlice = createSlice({
   name: 'user',
   initialState: {
     isLoggedIn: false,
-    user: { email: '' },
+    user: {},
   },
   reducers: {
     setUser: (state, action) => {

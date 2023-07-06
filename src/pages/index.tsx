@@ -9,7 +9,11 @@ import NavWithHero from '@/components/NavWithHero'
 import Footer from '@/components/Footer'
 import { loadUser } from '@/lib/loadUser'
 import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { Layout } from '@/components/Layout'
+
 type User = {
   data: {
     firstName: String
@@ -21,9 +25,11 @@ type User = {
     password: String
   }
 }
+
 export default function Home() {
   const User = useSelector((state: any) => state.User)
   const loggedIn = useSelector((state: any) => state.isLoggedIn)
+
   return (
     <>
       <Head>
@@ -32,29 +38,29 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='bg'>
-        <NavWithHero User={User} loggedIn={loggedIn} />
+      <main className=''>
+        {/* <NavWithHero User={User} loggedIn={loggedIn} />
+        <Hero /> */}
         <Hero />
         <Testimonials />
 
-        <Footer />
+        {/* <Footer /> */}
       </main>
     </>
   )
 }
-// export const getStaticProps: GetStaticProps<{
-//   user: User
-// }> = async () => {
-//   // const res = await fetch('https://api.github.com/repos/vercel/next.js')
-//   const user = userData
-//   return { props: { user } }
-// }
-
-// export async function getStaticProps(data: any) {
-//   // Instead of fetching your `/api` route you can call the same
-//   // function directly in `getStaticProps`
-//   const user = await loadUser(data)
-
-//   // Props returned will be passed to the page component
-//   return { props: { user } }
-// }
+// export const getServerSideProps = wrapper.getServerSideProps(
+//   (store) =>
+//     async ({ params }) => {
+//       // we can set the initial state from here
+//       // we are setting to false but you can run your custom logic here
+//       const dispatcher = useDispatch()
+//       await store.dispatch(UserAction.setUser({}))
+//       console.log('State on server', store.getState())
+//       return {
+//         props: {
+//           user: false,
+//         },
+//       }
+//     }
+// )

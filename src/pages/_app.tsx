@@ -9,14 +9,7 @@ import { Layout } from '@/components/Layout'
 import type { NextPage } from 'next'
 // import type { AppProps } from 'next/app'
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
-}
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({ Component, pageProps }: AppProps) {
   // {
   //   children,
   // }: {
@@ -24,9 +17,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   // }
   return (
     <Provider store={store}>
-      {/* <Layout> */}
-      <Component {...pageProps} />
-      {/* </Layout> */}
+      <div className='bg-black'>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
     </Provider>
   )
 }
+// export default wrapper.withRedux(App)

@@ -18,15 +18,16 @@ import 'bootstrap/dist/css/bootstrap.min.css' // Import bootstrap CSS
 import Footer from '@/components/Footer'
 import NavWithHero from '@/components/NavWithHero'
 import ContactForm from '@/components/ContactForm'
-
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 const Contact = () => {
+  const router = useRouter()
+
   return (
     <div className='bg'>
-      <NavWithHero />
       <Container>
         <ContactForm />
       </Container>
-      <Footer />
     </div>
   )
 }

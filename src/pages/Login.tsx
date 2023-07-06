@@ -4,7 +4,8 @@ import cut from '../../public/photos/barbershop.jpeg'
 import 'bootstrap/dist/css/bootstrap.min.css' // Import bootstrap CSS
 import Footer from '@/components/Footer'
 import NavWithHero from '@/components/NavWithHero'
-
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 const LogIn = () => {
   return (
     <div className='bg'>

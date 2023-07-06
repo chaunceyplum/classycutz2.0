@@ -29,6 +29,7 @@ import {
 } from 'react-bootstrap'
 import axios from 'axios'
 import { UserAction } from '@/redux/store'
+import Link from 'next/link'
 
 // const userContext = createContext<T>(defaultValue: T)</T>
 
@@ -37,7 +38,7 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
 
   const [useruser, setUserUser] = useState()
   const [userLoggedIn, setUserLoggedIn] = useState()
-  const toggle1 = () => setIsOpen(!isOpen)
+  const toggle = () => setIsOpen(!isOpen)
   // const User = useSelector((state: any) => state.User)
   // const loggedIn = useSelector((state: any) => state.isLoggedIn)
   interface Customer {
@@ -128,134 +129,133 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
 
   const [modal, setModal] = useState(false)
 
-  const toggle = () => setModal(!modal)
+  const toggle1 = () => setModal(!modal)
 
   return (
     <>
       <div className='navbg'>
         <Container>
           <Navbar sticky='top' expand='lg'>
-            <NavbarBrand href='/' className='text-white'>
-              <h1 className='brand'>
+            {/* <NavbarBrand className='text-white'> */}
+            <Link href='/'>
+              <h1 className='brand text-white'>
                 <strong>Hair</strong>
               </h1>
-            </NavbarBrand>
+            </Link>
+            {/* </NavbarBrand> */}
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className='ms-auto nav' navbar>
                 <NavItem>
-                  <NavLink className='text-white NavLink' href='/Booking'>
+                  {/* <NavLink> */}
+                  <Link className='text-white nav-link' href='/Booking'>
                     <strong className='NavLink'>Booking</strong>
-                  </NavLink>
+                  </Link>
+                  {/* </NavLink> */}
                 </NavItem>
                 <NavItem>
-                  <NavLink className='text-white' href='/Contact'>
+                  {/* <NavLink> */}
+                  <Link className='text-white nav-link' href='/Contact'>
                     <strong className='NavLink'>Contact</strong>
-                  </NavLink>
+                  </Link>
+                  {/* </NavLink> */}
                 </NavItem>
                 <NavItem>
-                  <NavLink className='text-white' href='/Signup'>
+                  {/* <NavLink> */}
+                  <Link className='text-white nav-link' href='/Signup'>
                     <strong className='NavLink'>Sign Up</strong>
-                  </NavLink>
+                  </Link>
+                  {/* </NavLink> */}
                 </NavItem>
-                <NavItem className='NavLink'>
-                  {/* <MyModal /> */}
-                  {/* {!loggedIn && <Welcome User={{ ...User }} />} */}
-                  {/* {loggedIn && <MyModal />} */}
-
-                  {userLoggedIn ? (
-                    <div>
-                      <NavLink
-                        className='text-white text-center'
-                        href='/Signup'
+                {/* <NavItem className='NavLink'> */}
+                {userLoggedIn ? (
+                  <div>
+                    <NavLink className='text-white text-center' href='/Signup'>
+                      <h6 className='text-white text-center'>
+                        Welcome,
+                        <br />
+                        {useruser.data.email}
+                      </h6>
+                      <Button
+                        onClick={() => {
+                          dispatcher(UserAction.clearUser())
+                        }}
                       >
-                        <h6 className='text-white text-center'>
-                          Welcome,
-                          <br />
-                          {/* {username.email} */}
-                          {useruser.data.email}
-                          {}
-                        </h6>
-                        <Button
-                          onClick={() => {
-                            dispatcher(UserAction.clearUser())
-                          }}
-                        >
-                          Log Out
-                        </Button>
-                      </NavLink>
-                    </div>
-                  ) : (
-                    <div>
-                      <Button color='secondary' onClick={toggle}>
-                        <strong className='NavLink'>Log In</strong>
+                        Log Out
                       </Button>
-                      <Modal isOpen={modal} toggle={toggle} {...args}>
-                        <ModalHeader>Modal title</ModalHeader>
-                        <ModalBody>
-                          <Container>
-                            <Form>
-                              <FormGroup>
-                                <Label for='exampleEmail'>Email</Label>
-                                <Input
-                                  type='email'
-                                  name='email'
-                                  id='exampleEmail'
-                                  placeholder='with a placeholder'
-                                  onChange={async (e) =>
-                                    setUserEmail(e.target.value)
-                                  }
-                                />
-                              </FormGroup>
-                              <FormGroup>
-                                <Label for='examplePassword'>Password</Label>
-                                <Input
-                                  type='password'
-                                  name='password'
-                                  id='examplePassword'
-                                  placeholder='password placeholder'
-                                  onChange={async (e) =>
-                                    setUserPassword(e.target.value)
-                                  }
-                                />
-                              </FormGroup>
-                            </Form>
-                          </Container>
-                        </ModalBody>
-                        <ModalFooter>
-                          <Container>
-                            <Row>
-                              <Col xs={6}>
-                                <div className='center text-center'>
-                                  <Button
-                                    className='bgColor'
-                                    onClick={() => {
-                                      clearBoth()
-                                    }}
-                                  >
-                                    Cancel
-                                  </Button>
-                                </div>
-                              </Col>
-                              <Col xs={6}>
-                                <div className='center text-center'>
-                                  <Button
-                                    className='bgColor'
-                                    onClick={(e) => {
-                                      submitUser(e, User)
-                                    }}
-                                  >
-                                    Submit
-                                  </Button>
-                                </div>
-                              </Col>
-                            </Row>
-                          </Container>
-                        </ModalFooter>
-                      </Modal>
-                    </div>
-                  )}
-                </NavItem>
+                    </NavLink>
+                  </div>
+                ) : (
+                  <div>
+                    <Button color='secondary' onClick={toggle1}>
+                      <strong className='NavLink'>Log In</strong>
+                    </Button>
+                    <Modal isOpen={modal} toggle={toggle1} {...args}>
+                      <ModalHeader>Modal title</ModalHeader>
+                      <ModalBody>
+                        <Container>
+                          <Form>
+                            <FormGroup>
+                              <Label for='exampleEmail'>Email</Label>
+                              <Input
+                                type='email'
+                                name='email'
+                                id='exampleEmail'
+                                placeholder='with a placeholder'
+                                onChange={async (e) =>
+                                  setUserEmail(e.target.value)
+                                }
+                              />
+                            </FormGroup>
+                            <FormGroup>
+                              <Label for='examplePassword'>Password</Label>
+                              <Input
+                                type='password'
+                                name='password'
+                                id='examplePassword'
+                                placeholder='password placeholder'
+                                onChange={async (e) =>
+                                  setUserPassword(e.target.value)
+                                }
+                              />
+                            </FormGroup>
+                          </Form>
+                        </Container>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Container>
+                          <Row>
+                            <Col xs={6}>
+                              <div className='center text-center'>
+                                <Button
+                                  className='bgColor'
+                                  onClick={() => {
+                                    toggle1()
+                                  }}
+                                >
+                                  Cancel
+                                </Button>
+                              </div>
+                            </Col>
+                            <Col xs={6}>
+                              <div className='center text-center'>
+                                <Button
+                                  className='bgColor'
+                                  onClick={(e) => {
+                                    submitUser(e, User)
+                                  }}
+                                >
+                                  Submit
+                                </Button>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Container>
+                      </ModalFooter>
+                    </Modal>
+                  </div>
+                )}
+                {/* </NavItem> */}
               </Nav>
             </Collapse>
           </Navbar>
