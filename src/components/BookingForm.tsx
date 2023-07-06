@@ -14,8 +14,8 @@ const BookingForm = () => {
     data: {
       fcustomerId: number
       fbarberId: number
-      Date: String
-      appointmentDate: String
+      Date: any
+      appointmentDate: any
       phoneNumber: String
     }
   }
