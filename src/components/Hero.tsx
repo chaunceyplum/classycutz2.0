@@ -8,7 +8,7 @@ const Hero = () => {
       <Container className='homeLayout'>
         <Row className='homeRow'>
           <Col xs={12}>
-            <div className=''>
+            <div className='text-white'>
               <br />
               <br />
               <br />
@@ -35,7 +35,7 @@ const Hero = () => {
                   <button className='btn btn-dark'>Learn More</button>
                 </Col>
                 <Col xs={9}>
-                  <p>Over 5000+ happy customers!</p>
+                  <p className='text-white'>Over 5000+ happy customers!</p>
                 </Col>
               </Row>
             </Container>

@@ -62,8 +62,8 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
   }
 
   //const apiUrl = 'https://classycutzbackend.herokuapp.com/newportContactinfo'
-
-  const apiUrl = '/api/login'
+  const apiUrl = 'http://127.0.0.1:5000/login/'
+  // const apiUrl = '/api/login'
   // const [, updateState] = React.useState()
 
   const forceUpdateHandler = () => {}
@@ -81,7 +81,10 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
           password: userPassword,
         },
       }
-      const res = await axios.post(`${apiUrl}`, user)
+      const res = await axios.post(`${apiUrl}`, user, {
+        headers: { 'Access-Control-Allow-Origin': 'no cors' },
+      })
+      console.log(user)
 
       // console.log(res.data)
       console.log(res.status)

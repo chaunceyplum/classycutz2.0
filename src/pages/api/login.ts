@@ -15,22 +15,22 @@ export default async function handler(
   //   }
   // } else
   if (req.method == 'POST') {
-    try {
-      // const newBarber = req.body
-      const data = await prisma.customer.findUnique({
-        where: {
-          email: req.body.data.email,
-        },
-      })
-      const data1 = JSON.stringify(data)
-      // console.log(data)
-      data
-        ? res.status(200).send({ data })
-        : res.status(500).send('Bad Request')
-      //res.status(200).send({ data })
-    } catch (err) {
-      res.status(500).send({ error: err })
-      console.log(err)
-    }
+    // try {
+    //   // const newBarber = req.body
+    //   const data = await prisma.customer.findUnique({
+    //     where: {
+    //       email: req.body.data.email,
+    //     },
+    //   })
+    //   const data1 = JSON.stringify(data)
+    //   // console.log(data)
+    //   data
+    //     ? res.status(200).send({ data })
+    //     : res.status(500).send('Bad Request')
+    //   //res.status(200).send({ data })
+    // } catch (err) {
+    //   res.status(500).send({ error: err })
+    //   console.log(err)
+    // }
   }
 }
