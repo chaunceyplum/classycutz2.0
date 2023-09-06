@@ -10,10 +10,10 @@ import { useThemeContext } from '@/context/context'
 const SignupForm = () => {
   interface Customer {
     data: {
-      firstName: String
-      lastName: String
+      firstname: String
+      lastname: String
       city: String
-      phoneNumber: String
+      phonenumber: String
       ffavoriteBarber: Number
       email: String
       password: String
@@ -38,9 +38,9 @@ const SignupForm = () => {
     setUserFavoriteBarber(1)
   }
 
-  //const apiUrl = 'https://classycutzbackend.herokuapp.com/newportContactinfo'
+  const apiUrl = 'https://classycutzbackend.herokuapp.com/addCustomer'
 
-  const apiUrl = '/api/customer'
+  //const apiUrl = 'http://127.0.0.1:5000/addCustomer'
 
   // const forceUpdateHandler = () => {
   //   this.forceUpdate()
@@ -49,10 +49,10 @@ const SignupForm = () => {
     data: {
       email: userEmail,
       password: userPassword,
-      firstName: userFirstName,
-      lastName: userLastName,
+      firstname: userFirstName,
+      lastname: userLastName,
       city: userCity,
-      phoneNumber: userPhoneNumber,
+      phonenumber: userPhoneNumber,
       ffavoriteBarber: userFavoriteBarber,
     },
   }
@@ -60,7 +60,7 @@ const SignupForm = () => {
     try {
       const res = await axios.post(`${apiUrl}`, user)
 
-      console.log(res.data)
+      //console.log(res.data)
 
       res.data
         ? console.log(res.data)
@@ -85,10 +85,10 @@ const SignupForm = () => {
       data: {
         email: userEmail,
         password: userPassword,
-        firstName: userFirstName,
-        lastName: userLastName,
+        firstname: userFirstName,
+        lastname: userLastName,
         city: userCity,
-        phoneNumber: userPhoneNumber,
+        phonenumber: userPhoneNumber,
         ffavoriteBarber: 1,
       },
     }
@@ -210,7 +210,7 @@ const SignupForm = () => {
                     </Row>
                   </Container>
                   <Container>
-                    <Row>
+                    {/* <Row>
                       <Col />
                       <Col>
                         <FormGroup>
@@ -226,7 +226,7 @@ const SignupForm = () => {
                         </FormGroup>
                       </Col>
                       <Col />
-                    </Row>
+                    </Row> */}
                   </Container>
                   <br />
                   <br />

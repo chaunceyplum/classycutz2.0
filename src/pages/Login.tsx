@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import NavWithHero from '@/components/NavWithHero'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+
 const LogIn = () => {
   return (
     <div className='bg'>

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import { Card, CardBody, CardText, Col, Container, Row } from 'reactstrap'
+import MeetTheBarbers from './MeetTheBarbers'
 
 const Testimonials = () => {
   return (
@@ -91,7 +92,9 @@ const Testimonials = () => {
               <h2>Meet the barbers</h2>
               <br />
               <Container>
-                <Row></Row>
+                <Row>
+                  <MeetTheBarbers />
+                </Row>
               </Container>
               <br />
             </div>

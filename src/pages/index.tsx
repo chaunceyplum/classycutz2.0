@@ -14,18 +14,6 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { Layout } from '@/components/Layout'
 
-type User = {
-  data: {
-    firstName: String
-    lastName: String
-    city: String
-    phoneNumber: String
-    ffavoriteBarber: Number
-    email: String
-    password: String
-  }
-}
-
 export default function Home() {
   const User = useSelector((state: any) => state.User)
   const loggedIn = useSelector((state: any) => state.isLoggedIn)

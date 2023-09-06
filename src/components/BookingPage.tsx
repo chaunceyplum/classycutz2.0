@@ -4,6 +4,7 @@ import { Card, Col, Container, Row } from 'react-bootstrap'
 import { CardBody, CardHeader } from 'reactstrap'
 import BookingView from './BookingView'
 import BookingForm from './BookingForm'
+import AppointmentFinder from './AppointmentFinder'
 
 const BookingPage = () => {
   return (
@@ -112,7 +113,8 @@ const BookingPage = () => {
             <div className=''>
               <Container>
                 {/* <BookingCheckout /> */}
-                <BookingView />
+                {/* <BookingView /> */}
+                <AppointmentFinder />
                 <BookingForm />
                 {/* <DateTimePicker /> */}
               </Container>

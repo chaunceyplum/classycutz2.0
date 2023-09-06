@@ -61,8 +61,8 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
     setUserPassword('')
   }
 
-  //const apiUrl = 'https://classycutzbackend.herokuapp.com/newportContactinfo'
-  const apiUrl = 'http://127.0.0.1:5000/login/'
+  const apiUrl = 'https://hairbackend-f9069fe5a798.herokuapp.com/login'
+  //const apiUrl = 'http://127.0.0.1:5000/login/'
   // const apiUrl = '/api/login'
   // const [, updateState] = React.useState()
 
@@ -74,6 +74,10 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
     },
   }
   const logIn = async (user: object) => {
+    const headers = {
+      'Access-Control-Allow-Origin': 'cors',
+    }
+
     try {
       const userDetails: Customer = {
         data: {
@@ -82,7 +86,7 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
         },
       }
       const res = await axios.post(`${apiUrl}`, user, {
-        headers: { 'Access-Control-Allow-Origin': 'no cors' },
+        headers: headers,
       })
       console.log(user)
 
@@ -177,7 +181,7 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
                       <h6 className='text-white text-center'>
                         Welcome,
                         <br />
-                        {useruser.data.email}
+                        {useruser.email}
                       </h6>
                       <Button
                         onClick={() => {

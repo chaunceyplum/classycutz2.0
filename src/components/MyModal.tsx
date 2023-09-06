@@ -39,7 +39,8 @@ function MyModal(args: any) {
     setUserPassword('')
   }
 
-  const apiUrl = 'http://127.0.0.1:5000/login/'
+  const apiUrl = 'http://127.0.0.1:5000/login'
+  //const apiUrl = 'https://hairbackend-f9069fe5a798.herokuapp.com/login'
 
   //const apiUrl = '/api/login'
   const [, updateState] = React.useState()
@@ -52,8 +53,11 @@ function MyModal(args: any) {
     },
   }
   const logIn = async (user: object) => {
+    const headers = {
+      'Access-Control-Allow-Origin': 'cors',
+    }
     try {
-      const res = await axios.post(`${apiUrl}`, user)
+      const res = await axios.post(`${apiUrl}`, user, headers)
 
       // console.log(res.data)
 
@@ -76,11 +80,15 @@ function MyModal(args: any) {
   // const forceUpdate = React.useCallback(() => updateState({}), [])
   const submitUser = (event: any, User: any) => {
     // const newPass = hashPass(userPassword)
+    const headers = {
+      'Access-Control-Allow-Origin': 'cors',
+    }
     const userDetails: Customer = {
       data: {
         email: userEmail,
         password: userPassword,
       },
+      headers: headers,
     }
 
     //console.log(userDetails)
