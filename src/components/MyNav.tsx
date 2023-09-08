@@ -37,6 +37,7 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
 
   const [useruser, setUserUser] = useState()
+
   const [userLoggedIn, setUserLoggedIn] = useState()
   const toggle = () => setIsOpen(!isOpen)
   // const User = useSelector((state: any) => state.User)
@@ -50,6 +51,7 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
 
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
+
   const dispatcher = useDispatch()
   // const loggedIn = useSelector((state: any) => state.isLoggedIn)
   // const User = useSelector((state: any) => state.User)
@@ -129,7 +131,7 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
       },
     }
     logIn(userDetails)
-
+    //console.log(userDetails)
     return { ...userDetails }
   }
   // const username = JSON.parse(useruser)
@@ -203,24 +205,28 @@ const MyNav = (User: any, loggedIn: any, args: any): JSX.Element => {
                         <Container>
                           <Form>
                             <FormGroup>
-                              <Label for='exampleEmail'>Email</Label>
+                              <Label for='exampleEmail'>
+                                Email: dummy@gmail.comm
+                              </Label>
                               <Input
                                 type='email'
                                 name='email'
                                 id='exampleEmail'
-                                placeholder='with a placeholder'
+                                placeholder='Email goes here'
                                 onChange={async (e) =>
                                   setUserEmail(e.target.value)
                                 }
                               />
                             </FormGroup>
                             <FormGroup>
-                              <Label for='examplePassword'>Password</Label>
+                              <Label for='examplePassword'>
+                                Password: dummy
+                              </Label>
                               <Input
                                 type='password'
                                 name='password'
                                 id='examplePassword'
-                                placeholder='password placeholder'
+                                placeholder='Password goes here'
                                 onChange={async (e) =>
                                   setUserPassword(e.target.value)
                                 }

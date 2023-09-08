@@ -34,9 +34,10 @@ const BookingForm = () => {
     setUserPhoneNumber('')
   }
 
-  //const apiUrl = 'https://classycutzbackend.herokuapp.com/newportContactinfo'
+  const apiUrl =
+    'https://classycutzbackend.herokuapp.com/http://127.0.0.1:5000/addAppointments'
 
-  const apiUrl = '/api/appointment'
+  //const apiUrl = 'http://127.0.0.1:5000/addAppointments'
 
   // const forceUpdateHandler = () => {
   //   this.forceUpdate()
@@ -79,11 +80,11 @@ const BookingForm = () => {
     const date = new Date()
     const userDetails: Appointment = {
       data: {
-        fcustomerId: User.user.data.customerId,
+        fcustomerId: User.user.customerId,
         fbarberId: Number(userBarberId),
         Date: date,
         appointmentDate: startDate,
-        phoneNumber: User.user.data.phoneNumber,
+        phoneNumber: String(User.user.phonenumber),
       },
     }
 

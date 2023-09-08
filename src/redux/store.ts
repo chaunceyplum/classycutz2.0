@@ -6,12 +6,14 @@ export const UserSlice = createSlice({
   name: 'user',
   initialState: {
     isLoggedIn: false,
-    user: {},
+    user: { email: '' },
   },
   reducers: {
     setUser: (state, action) => {
-      state.isLoggedIn = true
-      state.user = action.payload
+      if (action.payload[0] != 'error') {
+        state.isLoggedIn = true
+        state.user = action.payload
+      }
     },
     clearUser: (state) => {
       state.isLoggedIn = false

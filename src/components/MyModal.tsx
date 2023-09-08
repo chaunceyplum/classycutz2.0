@@ -116,22 +116,23 @@ function MyModal(args: any) {
             <Container>
               <Form>
                 <FormGroup>
-                  <Label for='exampleEmail'>Email</Label>
+                  <Label for='exampleEmail'>Email: dummy@gmail.comm</Label>
+
                   <Input
                     type='email'
                     name='email'
                     id='exampleEmail'
-                    placeholder='with a placeholder'
+                    placeholder='Enter email here'
                     onChange={async (e) => setUserEmail(e.target.value)}
                   />
                 </FormGroup>
                 <FormGroup>
-                  <Label for='examplePassword'>Password</Label>
+                  <Label for='examplePassword'>Password: dummy</Label>
                   <Input
                     type='password'
                     name='password'
                     id='examplePassword'
-                    placeholder='password placeholder'
+                    placeholder='Enter password here'
                     onChange={async (e) => setUserPassword(e.target.value)}
                   />
                 </FormGroup>
