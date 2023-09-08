@@ -35,7 +35,7 @@ const BookingForm = () => {
   }
 
   const apiUrl =
-    'https://classycutzbackend.herokuapp.com/http://127.0.0.1:5000/addAppointments'
+    'https://hairbackend-f9069fe5a798.herokuapp.com/addAppointments'
 
   //const apiUrl = 'http://127.0.0.1:5000/addAppointments'
 
